@@ -11,11 +11,11 @@ export class HookService {
     let toggleType = async type => {
       let isShowPassword = `${type}`.toLowerCase() === 'password';
       let targetType = isShowPassword ? 'text' : 'password';
-      let currentTab = await WebExtension.kit.getCurrentTab();
-      WebExtension.action.setIcon({
-        tabId: currentTab?.id,
-        path: isShowPassword ? `/logo.show.png` : `/logo.png`
-      });
+      // let currentTab = await WebExtension.kit.getCurrentTab();
+      // WebExtension.action.setIcon({
+      //   // tabId: currentTab?.id,
+      //   path: isShowPassword ? `/logo.show.png` : `/logo.png`
+      // });
       return targetType;
     };
 
