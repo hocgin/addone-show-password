@@ -1,58 +1,11 @@
+可以方便的查看填写的密码，支持自定义触发设置，如：
+- 双击
+- 单击
+- 自定义按键 + 单击
 
+GitHub: https://github.com/hocgin/addone-show-password
 
-static async mount() {
-let {triggerType, keydownCode} = await AppStorage.getUserSetting();
+如果在使用过程中遇到问题，请不要着急，差评并不能解决问题。您可以在下方链接进行反馈，我会及时跟进的。
+👉 https://github.com/hocgin/feedback/issues 👈
 
-    let $passwordInput = $("input[type='password']");
-    let changeInputType = (e) => {
-      console.log('触发', e);
-      let target = e?.target;
-      let eventType = e?.type;
-      let type = target?.type;
-      if (eventType === 'blur') {
-        target.type = 'password';
-      } else {
-        let isPassword = `${type}`.toLowerCase() === 'password';
-        target.type = isPassword ? 'text' : 'password';
-      }
-    };
-
-    // 双击
-    if (TriggerType.DoubleClick === triggerType) {
-      $passwordInput.on('dblclick blur', changeInputType);
-    }
-    // 移入 + 点击
-    else if (TriggerType.FocusClick === triggerType) {
-      $passwordInput.on('focus blur', (e) => {
-        console.log('event', e);
-        let $target = $(e?.target);
-        let eventType = e?.type;
-        // 移出
-        if (eventType === 'blur') {
-          $target.off('click', changeInputType);
-          changeInputType(e);
-        }
-        // 移入
-        else if (eventType === 'focus') {
-          $target.on('click', changeInputType);
-        }
-      });
-    }
-    // 长按(metaKey/ctrlKey) + 点击
-    else if (TriggerType.KeydownClick === triggerType) {
-      let control = false;
-      $(document).on('keyup keydown', (e) => {
-        let eventType = e?.type;
-        control = e?.[keydownCode] && eventType === 'keydown';
-        console.log('e', e);
-      });
-      $passwordInput.on('click blur', (e) => {
-        let eventType = e?.type;
-        if (control) {
-          changeInputType(e);
-        } else if (eventType === 'blur') {
-          changeInputType(e);
-        }
-      });
-    }
-}
+如果有帮助到你，可以给我一个好评吗🌹
