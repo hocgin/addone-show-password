@@ -17,6 +17,7 @@ export default defineConfig({
     defaultLocale: 'en',
     icons: '../public/logo.png',
     optionsPage: '@/pages/options',
+    homepageUrl: "https://logspot.hocgin.top/addone-show-password",
     action: {
       defaultIcon: '../public/logo.png',
       defaultTitle: '__MSG_extension_action_title__',
