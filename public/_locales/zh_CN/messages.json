@@ -1,7 +1,7 @@
 {
-  "extension_name": { "message": "插件 - 名称" },
+  "extension_name": { "message": "查看密码 - ShowPassword" },
   "extension_description": { "message": "插件 - 描述" },
-  "extension_action_title": { "message": "插件 - 弹窗标题" },
+  "extension_action_title": { "message": "查看密码 - ShowPassword" },
   "lang": { "message": "zh-cn" },
   "recommend": { "message": "推荐" },
   "__About": { "message": "\uD83C\uDF89 关于作者" },

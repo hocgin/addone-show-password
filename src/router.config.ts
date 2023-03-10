@@ -1,8 +1,1 @@
-export default [
-  {
-    path: '/',
-    component: '@/layouts/BasicLayout',
-    routes: [],
-  },
-  { component: '@/pages/404' },
-];
+export default [];

@@ -1,3 +1,2 @@
-export { Container } from '@/components/Container';
-export { Theme } from '@/components/Theme';
-export { StoreLink } from '@/components/StoreLink';
+export {Theme} from '@/components/Theme';
+export {StoreLink} from '@/components/StoreLink';

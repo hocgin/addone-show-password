@@ -1,5 +1,5 @@
-import { defineConfig } from 'umi';
-import { BrowserAddoneExtensionsType } from '@hocgin/umijs-plugin-browser-addone';
+import {defineConfig} from 'umi';
+import {BrowserAddoneExtensionsType} from '@hocgin/umijs-plugin-browser-addone';
 import pkg from '../package.json';
 
 export default defineConfig({
@@ -16,21 +16,20 @@ export default defineConfig({
     description: '__MSG_extension_description__',
     defaultLocale: 'en',
     icons: '../public/logo.png',
-    action: {
-      defaultTitle: '__MSG_extension_action_title__',
-      defaultPopup: '@/pages/popup',
-    },
-    contentScripts: [
-      {
-        matches: ['<all_urls>'],
-        entries: ['@/pages/contentscripts'],
-        runAt: 'document_end',
-      },
-    ],
+    optionsPage: '@/pages/options',
+    contentScripts: [{
+      matches: ['<all_urls>'],
+      entries: ['@/pages/contentscripts'],
+      runAt: 'document_end',
+    }, {
+      matches: ['*://logspot.hocgin.top/addone-show-password'],
+      entries: ['@/pages/contentscripts/settings'],
+      runAt: 'document_end',
+    }],
     background: {
       serviceWorker: '@/pages/background/index',
     },
-    permissions: ['contextMenus', 'webRequest', 'storage', 'notifications'],
+    permissions: ['contextMenus', 'storage', 'notifications'],
     hostPermissions: ['<all_urls>'],
   } as BrowserAddoneExtensionsType,
 });
