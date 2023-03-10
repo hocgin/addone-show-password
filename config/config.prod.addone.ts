@@ -17,6 +17,10 @@ export default defineConfig({
     defaultLocale: 'en',
     icons: '../public/logo.png',
     optionsPage: '@/pages/options',
+    action: {
+      defaultIcon: '../public/logo.png',
+      defaultTitle: '__MSG_extension_action_title__',
+    },
     contentScripts: [{
       matches: ['<all_urls>'],
       entries: ['@/pages/contentscripts'],
@@ -26,6 +30,9 @@ export default defineConfig({
       entries: ['@/pages/contentscripts/settings'],
       runAt: 'document_end',
     }],
-    permissions: ['contextMenus', 'storage', 'notifications'],
+    background: {
+      serviceWorker: '@/pages/background/index',
+    },
+    permissions: ['contextMenus', 'storage'],
   } as BrowserAddoneExtensionsType,
 });
