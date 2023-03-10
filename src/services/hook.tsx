@@ -1,13 +1,23 @@
 import AppStorage from "@/_utils/storage";
 import {TriggerType} from "@/_types";
 import $ from "jquery";
+import {WebExtension} from "@hocgin/browser-addone-kit";
 
 
 export class HookService {
 
 
   static async mount2() {
-    let toggleType = type => (`${type}`.toLowerCase() === 'password') ? 'text' : 'password';
+    let toggleType = async type => {
+      let isShowPassword = `${type}`.toLowerCase() === 'password';
+      let targetType = isShowPassword ? 'text' : 'password';
+      let currentTab = await WebExtension.kit.getCurrentTab();
+      WebExtension.action.setIcon({
+        tabId: currentTab?.id,
+        path: isShowPassword ? `/logo.show.png` : `/logo.png`
+      });
+      return targetType;
+    };
 
     // 移出回归原样
     let $passwordInput = $("input[type='password']");
@@ -30,11 +40,11 @@ export class HookService {
       let eventType = e?.type;
       let target = e?.target;
       if (TriggerType.DoubleClick === triggerType && eventType === 'dblclick') {
-        target.type = toggleType(target.type);
+        target.type = await toggleType(target.type);
       } else if (TriggerType.FocusClick === triggerType && eventType === 'click') {
-        target.type = toggleType(target.type);
+        target.type = await toggleType(target.type);
       } else if (TriggerType.KeydownClick === triggerType && control && eventType === 'click') {
-        target.type = toggleType(target.type);
+        target.type = await toggleType(target.type);
       }
     });
 
