@@ -1,6 +1,6 @@
 {
   "extension_name": { "message": "查看密码 - ShowPassword" },
-  "extension_description": { "message": "插件 - 描述" },
+  "extension_description": { "message": "👀让你双击即可查看密码框" },
   "extension_action_title": { "message": "查看密码 - ShowPassword" },
   "lang": { "message": "zh-cn" },
   "recommend": { "message": "推荐" },
@@ -13,5 +13,13 @@
   "__UserUnLogged": { "message": "\uD83D\uDE11 未登录" },
   "__Logout": { "message": "退出登录" },
   "__UpdateNotifyTitle": { "message": "版本更新" },
-  "__UpdateNotifyMessage": {"message": "\uD83C\uDF89 发生较大的版本更新，点击查看"}
+  "__UpdateNotifyMessage": {"message": "\uD83C\uDF89 发生较大的版本更新，点击查看"},
+  "doubleclick": { "message": "双击" },
+  "focusclick": { "message": "单击" },
+  "keydownclick": { "message": "按键+点击" },
+  "test_area": { "message": "测试区" },
+  "settings": { "message": "配置" },
+  "trigger_type": { "message": "触发方式" },
+  "change_ok": { "message": "操作成功" },
+  "keycode_group": { "message": "配合按键" }
 }

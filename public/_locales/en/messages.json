@@ -1,7 +1,7 @@
 {
-  "extension_name": { "message": "Plugin - Name" },
-  "extension_description": { "message": "Plugin - Description" },
-  "extension_action_title": { "message": "Plugin - Popup Title" },
+  "extension_name": {"message": "ShowPassword"},
+  "extension_description": {"message": "👀 Double-click to view password fields"},
+  "extension_action_title": {"message": "ShowPassword"},
   "lang": { "message": "en" },
   "recommend": { "message": "REC" },
   "__About": { "message": "\uD83C\uDF89 About the Author" },
@@ -13,7 +13,25 @@
   "__UserUnLogged": { "message": "\uD83D\uDE11 Not Logged In" },
   "__Logout": { "message": "Log Out" },
   "__UpdateNotifyTitle": { "message": "Version Update" },
-  "__UpdateNotifyMessage": {
-    "message": "\uD83C\uDF89 There is a major version update, click to view"
-  }
+  "__UpdateNotifyMessage": {"message": "\uD83C\uDF89 There is a major version update, click to view"},
+  "doubleclick": {"message": "Double-click"},
+  "focusclick": {
+    "message": "Single-click"
+  },
+  "keydownclick": {
+    "message": "Key + Click"
+  },
+  "test_area": {
+    "message": "Test Area"
+  },
+  "settings": {
+    "message": "Settings"
+  },
+  "trigger_type": {
+    "message": "Trigger Method"
+  },
+  "change_ok": {
+    "message": "Operation successful"
+  },
+  "keycode_group": {"message": "Combined with a key"}
 }

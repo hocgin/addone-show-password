@@ -26,10 +26,6 @@ export default defineConfig({
       entries: ['@/pages/contentscripts/settings'],
       runAt: 'document_end',
     }],
-    background: {
-      serviceWorker: '@/pages/background/index',
-    },
     permissions: ['contextMenus', 'storage', 'notifications'],
-    hostPermissions: ['<all_urls>'],
   } as BrowserAddoneExtensionsType,
 });
