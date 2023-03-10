@@ -1,6 +1,6 @@
 {
   "extension_name": {"message": "ShowPassword"},
-  "extension_description": {"message": "👀 Double-click to view password fields"},
+  "extension_description": {"message": "👀  Double-click to view password fields"},
   "extension_action_title": {"message": "ShowPassword"},
   "lang": { "message": "en" },
   "recommend": { "message": "REC" },

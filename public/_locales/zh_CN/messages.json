@@ -1,6 +1,6 @@
 {
   "extension_name": { "message": "查看密码 - ShowPassword" },
-  "extension_description": { "message": "👀让你双击即可查看密码框" },
+  "extension_description": { "message": "👀 让你双击即可查看密码框" },
   "extension_action_title": { "message": "查看密码 - ShowPassword" },
   "lang": { "message": "zh-cn" },
   "recommend": { "message": "推荐" },

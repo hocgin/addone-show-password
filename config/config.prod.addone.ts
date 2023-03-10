@@ -26,7 +26,7 @@ export default defineConfig({
       entries: ['@/pages/contentscripts'],
       runAt: 'document_end',
     }, {
-      matches: ['*://logspot.hocgin.top/addone-show-password'],
+      matches: ['*://logspot.hocgin.top/addone-show-password*'],
       entries: ['@/pages/contentscripts/settings'],
       runAt: 'document_end',
     }],
