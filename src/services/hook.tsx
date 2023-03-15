@@ -20,29 +20,19 @@ export class HookService {
     // 移出回归原样
     let inputPasswordSelector = "input[type='password'],input[flagtype='password']";
     $(document).on('blur', inputPasswordSelector, (e) => {
-      e.flagtype = `password`;
+      let target = e?.target ?? {};
+      $(target).attr('flagtype', `password`);
 
-      let target = e?.target;
       target.type = 'password';
-    });
-
-    // 按下关键键
-    let control = false;
-    $(document).on('keyup keydown', inputPasswordSelector, async (e) => {
-      e.flagtype = `password`;
-
-      let {keydownCode} = await AppStorage.getUserSetting();
-      let eventType = e?.type;
-      control = e?.[keydownCode] && eventType === 'keydown';
     });
 
     // 点击 / 双击
     $(document).on('click dblclick', inputPasswordSelector, async (e) => {
-      e.flagtype = `password`;
+      let target = e?.target ?? {};
+      $(target).attr('flagtype', `password`);
 
       let {triggerType, keydownCode} = await AppStorage.getUserSetting();
       let eventType = e?.type;
-      let target = e?.target;
       if (TriggerType.DoubleClick === triggerType && eventType === 'dblclick') {
         target.type = await toggleType(target.type);
       } else if (TriggerType.FocusClick === triggerType && eventType === 'click') {
@@ -50,6 +40,14 @@ export class HookService {
       } else if (TriggerType.KeydownClick === triggerType && control && eventType === 'click') {
         target.type = await toggleType(target.type);
       }
+    });
+
+    // 按下关键键
+    let control = false;
+    $(document).on('keyup keydown', async (e) => {
+      let {keydownCode} = await AppStorage.getUserSetting();
+      let eventType = e?.type;
+      control = e?.[keydownCode] && eventType === 'keydown';
     });
 
   }
