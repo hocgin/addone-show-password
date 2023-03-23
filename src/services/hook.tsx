@@ -7,7 +7,7 @@ export class HookService {
 
 
   static async mount2() {
-    let toggleType = async type => {
+    let toggleType = async (type: any) => {
       let isShowPassword = `${type}`.toLowerCase() === 'password';
       // let currentTab = await WebExtension.kit.getCurrentTab();
       // WebExtension.action.setIcon({
@@ -45,8 +45,9 @@ export class HookService {
     // 按下关键键
     let control = false;
     $(document).on('keyup keydown', async (e) => {
-      let {keydownCode} = await AppStorage.getUserSetting();
+      let {keydownCode} = (await AppStorage.getUserSetting());
       let eventType = e?.type;
+      // @ts-ignore
       control = e?.[keydownCode] && eventType === 'keydown';
     });
 
