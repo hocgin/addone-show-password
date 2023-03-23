@@ -11,7 +11,7 @@ export default () => {
     HookService.mount2();
   });
   if (online) {
-    window.location.href = `https://logspot.hocgin.top/${Config.getProjectId()}`;
+    window.location.href = `https://logspot.hocgin.top/${Config.getProjectId()}?active=setting`;
     return <Loading/>
   }
   return <div className={styles.options}>
