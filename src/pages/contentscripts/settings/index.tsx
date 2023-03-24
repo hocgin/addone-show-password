@@ -1,12 +1,21 @@
 import ReactDOM from "react-dom";
 import {Settings} from "@/pages/options/settings";
+// @ts-ignore
+import insertionQ from 'insertion-query';
 
 let elementId = 'addone-show-password';
-document.addEventListener("DOMContentLoaded", () => new MutationObserver(() => {
+document.addEventListener("DOMContentLoaded", () => {
   let element = document.getElementById(elementId);
-  console.log('element', element);
-  if (!element) return;
-  let newElement = document.createElement('div');
-  ReactDOM.render(<Settings/>, newElement, () => element!.replaceWith(newElement));
-}).observe(document.body, {childList: true, subtree: true}));
-
+  let replaceComponent = (element: any) => {
+    let newElement = document.createElement('div');
+    ReactDOM.render(<Settings/>, newElement, () => element!.replaceWith(newElement));
+  };
+  // 已有节点
+  if (element) {
+    new MutationObserver(() => replaceComponent(element)).observe(element, {
+      attributes: true, childList: true, subtree: true
+    });
+  }
+  // 无节点，持续监控
+  insertionQ(`#${elementId}`).every(replaceComponent);
+});
