@@ -2,8 +2,9 @@ import ReactDOM from "react-dom";
 import {Settings} from "@/pages/options/settings";
 // @ts-ignore
 import insertionQ from 'insertion-query';
+import Config from "@/config";
 
-let elementId = 'addone-show-password';
+let elementId = Config.getProjectId();
 document.addEventListener("DOMContentLoaded", () => {
   let element = document.getElementById(elementId);
   let replaceComponent = (element: any) => {
